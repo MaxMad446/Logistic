@@ -1094,17 +1094,64 @@ body.no-scroll {
   text-decoration: underline;
 }
 
+
+
+
+
 /* Media */
 
-@media (max-width: 767px) {
 
-    /* Header */
+
+
+@media (max-width: 991px) {
+  /* Section */
+
+  .section__title {
+      text-align: center;
+  }
+
+  .section--map {
+      background-position: center top 130px;
+  }
+
+
+
+  /* Services */
+  .services__item {
+    width: 50%;
+  }
+
+  /* Clients */
+  .clients {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .clients__logos,
+  .clients__reviews {
+    width: 100%;
+  }
+
+  .clients__logos {
+    margin-bottom: 50px;
+  }
+
+  .clients__list {
+    justify-content: center;
+  }
+
+  .clients__list li {
+    max-width: 130px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Header */
   .header__inner {
     height: 50px;
   }
 
-
-    /* Nav*/
+  /* Nav*/
 
   .nav {
     display: none;
@@ -1124,17 +1171,21 @@ body.no-scroll {
   }
 
   .nav__link {
-      display: block;
-      padding: 10px 15px;
-      text-align: right;
+    display: block;
+    padding: 10px 15px;
+    text-align: right;
   }
 
-    /* Burger */
+  /* Burger */
   .burger {
     display: block;
   }
 
-    /* Intro */
+  /* Intro */
+
+  .intro {
+    margin-bottom: 0;
+  }
 
   .intro__inner {
     flex-direction: column;
@@ -1145,11 +1196,11 @@ body.no-scroll {
   }
 
   .intro__text {
-      order: 1;
-      width: 100%;
-      margin-bottom: 25px;
+    order: 1;
+    width: 100%;
+    margin-bottom: 25px;
 
-      text-align: center;
+    text-align: center;
   }
 
   .intro__title {
@@ -1157,30 +1208,64 @@ body.no-scroll {
   }
 
   .intro__title-amp {
-      font-size: 120px;
-      right: auto;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
+    font-size: 120px;
+    right: auto;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
   }
 
-
-    /* Request form */
+  /* Request form */
   .request-form--intro {
-      order: 2;
-      position: static;
+    order: 2;
+    position: static;
   }
-
 }
 
+@media (max-width: 575px) {
+  /* Intro */
 
-@media (max-width:575px) {
+  .intro__title {
+    font-size: 60px;
+  }
 
-    .intro__title {
-        font-size: 60px;
-      }
+  .intro__title-amp {
+    font-size: 90px;
+  }
 
-      .intro__title-amp {
-          font-size: 90px;
-      }
+  /* Services */
 
+  .services__main-title {
+    font-size: 60px;
+  }
+
+  .services__item {
+    width: 100%;
+  }
+
+  /* Section*/
+
+  .section {
+    padding: 30px 0;
+  }
+
+  .section__title {
+    font-size: 35px;
+  }
+
+  /* Clients */
+
+  .clients__list {
+    margin: 0 -15px;
+  }
+
+  .clients__list li {
+    max-width: none;
+    width: 33.33333%;
+    margin-right: 0;
+    padding: 0 15px;
+  }
+
+  .clients__list-logo {
+    margin: 0 auto;
+  }
 }
