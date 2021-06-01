@@ -58,6 +58,14 @@ body.no-scroll {
   padding: 0 15px;
 }
 
+/* Page */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* Header */
 
 .header {
@@ -72,7 +80,7 @@ body.no-scroll {
 }
 
 .header--dark {
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .header__inner {
@@ -121,6 +129,14 @@ body.no-scroll {
 .intro--blog {
   height: 350px;
   background: #000 url(../images/blog-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.intro--text {
+  height: 350px;
+  background: #000 url(../images/text-bg.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -353,6 +369,10 @@ body.no-scroll {
 
 .section--gray {
   background-color: #f9f9f9;
+}
+
+.section--last {
+  margin-bottom: 60px;
 }
 
 .section__title {
@@ -811,6 +831,7 @@ body.no-scroll {
 
 .footer {
   padding: 40px 0;
+  margin-top: auto;
 
   background-color: #f9f9f9;
 
@@ -985,4 +1006,81 @@ body.no-scroll {
 
 .main__col {
   width: 50%;
+}
+
+/* Text */
+
+.text {
+  max-width: 890px;
+  margin-bottom: 50px;
+
+  font-size: 18px;
+  line-height: 1.5;
+  color: #585858;
+}
+
+.text p {
+  margin-bottom: 20px;
+}
+
+.text h2,
+.text h3,
+.text h4,
+.text h5,
+.text h6 {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    color:#2c2c2c;
+}
+
+.text h2 {
+    font-size: 27px;
+}
+.text h3 {
+    font-size: 24px;
+}
+.text h4 {
+    font-size: 21px;
+}
+.text h5 {
+    font-size: 18px;
+}
+.text h6 {
+    font-size: 15px;
+}
+
+.text ol,
+.text ul {
+    margin-bottom: 20px;
+}
+
+.text ol {
+    list-style: decimal;
+    list-style-position: inside;
+}
+
+.text hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 40px 0;
+
+    border: 0;
+    background-color: #d1d1d1;
+}
+
+.text img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.text a {
+    color: #0d53f2;
+    text-decoration: none;
+}
+
+.text a:hover {
+    text-decoration: underline;
 }
