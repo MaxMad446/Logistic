@@ -20,7 +20,7 @@
 
                         <!-- Header -->
 
-    <header class="header header--dark">
+    <header class="header" id="header">
         <div class="container">
             <div class="header__inner">
 
@@ -29,11 +29,12 @@
                 </a>
 
                 <nav class="nav">
-                    <a class="nav__link active" href="#">Services</a>
-                    <a class="nav__link" href="#">Clients</a>
-                    <a class="nav__link" href="#">Benefits</a>
-                    <a class="nav__link" href="#">Team</a>
-                    <a class="nav__link" href="#">News</a>
+                    <a class="nav__link active" href="#" data-scroll="#services">Services</a>
+                    <a class="nav__link" href="#" data-scroll="#clients">Clients</a>
+                    <a class="nav__link" href="#" data-scroll="#benefits">Benefits</a>
+                    <a class="nav__link" href="#" data-scroll="#team">Team</a>
+                    <a class="nav__link" href="#" data-scroll="#mission">Mission</a>
+                    <a class="nav__link" href="#" data-scroll="#news">News</a>
                     <a class="nav__link" href="#">Contact Us</a>
                 </nav>
 
@@ -48,7 +49,7 @@
 
                         <!-- Intro -->
 
-    <div class="intro">
+    <div class="intro" id="intro">
         <div class="container">
             <div class="intro__inner">
                 <div class="request-form  request-form--intro">
@@ -95,7 +96,7 @@
 
                         <!-- Services -->
 
-    <section class="section">
+    <section class="section" id="services">
         <div class="container">
             <div class="services">
 
@@ -156,7 +157,7 @@
 
                         <!-- Clients -->
 
-    <section class="section section--map">
+    <section class="section section--map" id="clients">
         <div class="container">
             <h2 class="section__title"><span>Our</span> Clients</h2>
 
@@ -253,7 +254,7 @@
 
                         <!-- Benefits -->
 
-    <section class="section">
+    <section class="section" id="benefits">
         <div class="container">
             <h2 class="section__title"><span>Our</span> benefits</h2>
             <div class="benefits">
@@ -312,7 +313,7 @@
 
                         <!-- Our Team -->
 
-    <section class="section section--gray">
+    <section class="section section--gray" id="team">
         <div class="container">
             <h2 class="section__title">
                 <span>Our</span> Team
@@ -383,7 +384,7 @@
 
                         <!-- Mission -->
 
-    <section class="section">
+    <section class="section" id="mission">
         <div class="container">
             <h2 class="mission-title  rel">Our mission</h2>
             <div class="mission">
@@ -405,7 +406,7 @@
 
                         <!-- News -->
 
-    <section class="section  section--last">
+    <section class="section  section--last" id="news">
         <div class="container">
             <h2 class="section__title"><span>Interesting</span> to read</h2>
 
@@ -471,41 +472,43 @@
 
     <div class="modal" id="becomeClientModal" style="display:none">
         <div class="modal__inner">
-            <div class="modal__header">
-                <h4 class="modal__title">Need to deliver to Cargo? We can help!</h4>
-                <div class="modal__text">
-                    <p>Fill a little form and we will call your back!</p>
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h4 class="modal__title">Need to deliver to Cargo? We can help!</h4>
+                    <div class="modal__text">
+                        <p>Fill a little form and we will call your back!</p>
+                    </div>
+                </div><!-- /.modal__header -->
+
+                <form class="form" action="/" method="POST">
+                    <div class="form__group">
+                        <input class="input input--dark input--user" type="text" placeholder="Your Name">
+                    </div>
+                    <div class="form__group">
+                        <input class="input input--dark  input--phone" type="tel" placeholder="Your phone">
+                    </div>
+                    <div class="form__group">
+                        <input class="input input--dark input--email" type="email" placeholder="Your email">
+                    </div>
+
+                    <button type="submit" class="btn  btn--block btn--orange"><span>Call Me Back</span></button>
+                </form>
+
+                <div class="modal__footer">
+
+                    <h4 class="modal__footer-title">Our contacts</h4>
+                    <address class="modal__contacts">
+                        <p>New York, Street, ZIP code</p>
+                        <p> Call Us: <a href="tel:+9948373123">+9948373123</a>  or E-mail:
+                            <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a>
+                        </p>
+                    </address>
                 </div>
-            </div><!-- /.modal__header -->
 
-            <form class="form" action="/" method="POST">
-                <div class="form__group">
-                    <input class="input input--dark input--user" type="text" placeholder="Your Name">
-                </div>
-                <div class="form__group">
-                    <input class="input input--dark  input--phone" type="tel" placeholder="Your phone">
-                </div>
-                <div class="form__group">
-                    <input class="input input--dark input--email" type="email" placeholder="Your email">
-                </div>
-
-                <button type="submit" class="btn  btn--block btn--orange"><span>Call Me Back</span></button>
-            </form>
-
-            <div class="modal__footer">
-
-                <h4 class="modal__footer-title">Our contacts</h4>
-                <address class="modal__contacts">
-                    <p>New York, Street, ZIP code</p>
-                    <p> Call Us: <a href="tel:+9948373123">+9948373123</a>  or E-mail:
-                        <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a>
-                    </p>
-                </address>
-            </div>
-
-            <button class="modal__close" type="button">
-                <img src="./assets/images/close.svg" alt="close">
-            </button>
+                <button class="modal__close" type="button">
+                    <img src="./assets/images/close.svg" alt="close">
+                </button>
+            </div><!-- /.modal__content -->
         </div><!-- /.modal__inner -->
     </div><!-- /.modal -->
 
@@ -539,6 +542,11 @@
         </div><!-- /.modal__inner -->
     </div><!-- /.modal -->
 
+
+    <!-- JavaScript -->
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+<script src="assets/js/app.js"></script>
 
 </body>
 </html>
