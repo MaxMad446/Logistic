@@ -80,7 +80,7 @@ body.no-scroll {
   right: 0;
   z-index: 1000;
 
-  transition: background .2s linear;
+  transition: background 0.2s linear;
 }
 
 .header--dark {
@@ -110,7 +110,7 @@ body.no-scroll {
   color: #fff;
   text-decoration: none;
 
-  transition: background .2s linear;
+  transition: background 0.2s linear;
 }
 
 .nav__link:not(.active):hover {
@@ -134,11 +134,7 @@ body.no-scroll {
 
 .intro {
   margin-bottom: 30px;
-
-  background: #000 url(../images/intro-bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  position: relative;
 }
 
 .intro--blog {
@@ -157,11 +153,97 @@ body.no-scroll {
   background-size: cover;
 }
 
+.intro__slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background-color: #04222a url(../images/intro-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.intro__slider .slider-item {
+    display: none;
+}
+
+.intro__slider.slick-initialized {
+  background: #04222a;
+}
+
+.intro__slider.slick-initialized .slider-item {
+    display: block;
+}
+
+.intro__slider .slick-list,
+.intro__slider .slick-track {
+  height: 100%;
+}
+
+.intro__slider-item {
+  width: 100%;
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro__slider-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.intro__slider-arrows {
+  position: absolute;
+  bottom: 30px;
+  left: 430px;
+}
+
+.intro__slider-btn {
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0 3px;
+
+  font-size: 0;
+  color: transparent;
+  cursor: pointer;
+  background: none;
+}
+
+.intro__slider-btn:focus {
+  outline: none;
+}
+
+.intro__slider-btn-prev {
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.intro__slider-btn-next {
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #fff;
+}
+
 .intro__inner {
   height: 600px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 .intro__text {
@@ -423,7 +505,6 @@ body.no-scroll {
   line-height: 1;
   color: rgba(44, 44, 44, 0.05);
   font-weight: 900;
-  pointer-events: none;
 
   position: absolute;
   bottom: 12px;
@@ -536,9 +617,103 @@ body.no-scroll {
 
 .reviews {
   position: relative;
+  height: 200px;
+
+  background: url(../images/ajax-loader.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.reviews.slick-initialized {
+  background: none;
+  height: auto;
+}
+
+.reviews:before,
+.reviews::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .reviews:before {
+  left: 0;
+
+  background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+}
+
+.reviews:after {
+  right: 0;
+
+  background-image: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+}
+
+.reviews .slick-list {
+  padding-top: 20px;
+  z-index: 2;
+}
+
+.reviews .slick-dots {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: 3;
+}
+
+.reviews .slick-dots li.slick-active button {
+  background: #004af2;
+  box-shadow: 0 0 0 5px rgba(0, 74, 242, 0.11);
+}
+
+.reviews .slick-dots li {
+  margin: 0 8px;
+}
+
+.reviews .slick-dots button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+
+  background: #dbdbdb;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: transparent;
+  font-size: 0;
+
+  transition: background 0.2s linear, box-shadow 0.2s linear;
+}
+
+.reviews .slick-dots button:focus {
+  outline: none;
+}
+
+.reviews__item {
+  display: none;
+  padding: 0 10px;
+}
+
+.reviews__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.reviews__header:before {
   content: "";
   display: block;
   width: 92px;
@@ -548,17 +723,9 @@ body.no-scroll {
   background-repeat: no-repeat;
 
   position: absolute;
-  top: -15px;
+  top: -13px;
   left: 2px;
   z-index: 1;
-}
-
-.reviews__header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
 }
 
 .reviews__header-content {
@@ -570,6 +737,8 @@ body.no-scroll {
 .reviews__photo {
   width: 100px;
   height: 100px;
+  position: relative;
+  z-index: 2;
 
   border-radius: 50%;
   border: 5px solid #fff;
@@ -920,7 +1089,7 @@ body.no-scroll {
 }
 
 .modal.show {
-  display: flex;
+  display: block;
 }
 
 .modal__inner {
@@ -937,6 +1106,10 @@ body.no-scroll {
   padding: 25px;
 
   background-color: #fff;
+  opacity: 0;
+
+  transform: scale(0.5);
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .modal__header {
@@ -1015,6 +1188,10 @@ body.no-scroll {
   z-index: 1;
 
   transition: transform 0.2s linear;
+}
+
+.modal__close:focus {
+  outline: none;
 }
 
 .modal__close:hover {
@@ -1152,7 +1329,7 @@ body.no-scroll {
   /* Clients */
   .clients {
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 
   .clients__logos,
@@ -1232,6 +1409,10 @@ body.no-scroll {
     display: block;
   }
 
+  .burger:focus {
+      outline: none;
+  }
+
   /* Intro */
 
   .intro {
@@ -1260,6 +1441,10 @@ body.no-scroll {
 
   .intro__title-amp {
     font-size: 100px;
+  }
+
+  .intro__slider-arrows {
+    display: none;
   }
 
   /* Main */
@@ -1350,12 +1535,11 @@ body.no-scroll {
     background-position: left -20px bottom -30px, right -20px bottom -30px;
   }
 
-
   /* Articles */
 
   .articles--column {
     margin-bottom: 30px;
-}
+  }
 }
 
 @media (max-width: 575px) {
@@ -1431,6 +1615,12 @@ body.no-scroll {
 
   .clients__list-logo {
     margin: 0 auto;
+  }
+
+  .clients-love {
+      display: block;
+      margin-left: 0;
+      margin-top: 20px;
   }
 
   /* Mission */
